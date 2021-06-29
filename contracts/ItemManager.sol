@@ -1,8 +1,9 @@
 pragma solidity ^0.6.0;
 
 import "./Item.sol";
+import "./Ownable.sol";
 
-contract ItemManager{
+contract ItemManager is Ownable{
     
     //define 3 states of the supply chain
     enum SupplyChainState{Created, Paid, Delivered}
@@ -22,7 +23,8 @@ contract ItemManager{
     event SupplyChainStep(uint _itemIndex, uint _step, address _address);
     
     //create an Item at a new index and notify it with an event
-    function createItem(string memory _identifier, uint _itemPrice) public {
+    //adding a check to ensure only owner can call this function
+    function createItem(string memory _identifier, uint _itemPrice) public onlyOwner {
         Item item = new Item(this, _itemPrice, itemIndex);
         items[itemIndex]._item = item;
         items[itemIndex]._identifier = _identifier;
@@ -46,7 +48,8 @@ contract ItemManager{
     }
     
     //trigger the delivery, update the status of the order to Delivered and notify it with an event
-    function triggerDelivery(uint _itemIndex) public {
+    //adding a check to ensure only owner can call this function
+    function triggerDelivery(uint _itemIndex) public onlyOwner {
         require(items[_itemIndex]._state == SupplyChainState.Paid, "Item is further in the Chain");
         items[_itemIndex]._state = SupplyChainState.Delivered;
         
