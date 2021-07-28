@@ -1,4 +1,6 @@
 const path = require("path");
+const { mnemonic, API_KEY } = require('./secrets.json');
+var HDWalletProvider = require("./client/node_modules/truffle-hdwallet-provider");
 
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
@@ -7,6 +9,14 @@ module.exports = {
   networks: {
     develop: {
       port: 8545
+    },
+
+    rinkeby: {
+      provider: () => {
+        return new HDWalletProvider(mnemonic, 'https://rinkeby.infura.io/v3/' + API_KEY)
+      },
+      network_id: 4,
+      gas: 4000000
     }
   },
   compilers: {

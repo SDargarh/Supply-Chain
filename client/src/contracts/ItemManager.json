@@ -6097,6 +6097,39 @@
     "version": "0.6.1+commit.e6f7d5a4.Emscripten.clang"
   },
   "networks": {
+    "4": {
+      "events": {
+        "0xa4035636e99f06b7651a604c1019fa4e8779fe68ef27eeb74dff2de348f6199b": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_itemIndex",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_step",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_address",
+              "type": "address"
+            }
+          ],
+          "name": "SupplyChainStep",
+          "type": "event",
+          "signature": "0xa4035636e99f06b7651a604c1019fa4e8779fe68ef27eeb74dff2de348f6199b"
+        }
+      },
+      "links": {},
+      "address": "0x1991091578D407d1fB916639D42f64df2A4C769E",
+      "transactionHash": "0xb0d34dfeefd42463827af473812129a2107ae35eafd09d4de469ee2f9addd5d9"
+    },
     "5777": {
       "events": {
         "0xa4035636e99f06b7651a604c1019fa4e8779fe68ef27eeb74dff2de348f6199b": {
@@ -6132,7 +6165,7 @@
     }
   },
   "schemaVersion": "3.0.20",
-  "updatedAt": "2021-06-27T20:49:54.064Z",
+  "updatedAt": "2021-07-28T17:30:34.636Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
