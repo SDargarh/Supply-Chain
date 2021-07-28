@@ -1,2 +1,2 @@
 #Ignore secrets file containing mnemonic and Project-ID (infura API_KEY)
-secrets.json
+./secrets.json
